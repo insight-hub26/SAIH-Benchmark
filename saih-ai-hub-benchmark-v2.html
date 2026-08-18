@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAIH Partnership Benchmark · V2</title>
+  <style>
+    :root{--ink:#10264a;--muted:#5b7295;--blue:#2268dc;--pale:#eef6ff;--line:#d9e6f3;--card:#fff;--navy:#0d2142;--teal:#1a9baa;--gold:#c48b28}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#f7fbff;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5} a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+    .topbar{height:70px;border-bottom:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,76px);position:sticky;top:0;z-index:5}.brand img{height:38px;width:auto;display:block}.nav{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+    main{width:100%}.wrap{width:min(1480px,calc(100% - 48px));margin:0 auto}.hero{background:var(--pale);padding:clamp(54px,7vw,96px) 0 76px}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:72px;align-items:center}.eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--blue);margin:0 0 18px}.hero h1{font-size:clamp(44px,6.4vw,92px);line-height:.96;letter-spacing:-.065em;margin:0 0 26px;max-width:760px}.lede{font-size:clamp(18px,2vw,24px);line-height:1.42;color:var(--muted);max-width:720px;margin:0}.hero-note{border-left:3px solid var(--blue);padding:8px 0 8px 20px;margin-top:32px;font-weight:700;max-width:700px}.hero-visual{background:linear-gradient(145deg,#0b234b,#1d6791);border-radius:28px;min-height:410px;display:grid;place-items:center;box-shadow:0 24px 60px #1742732b;overflow:hidden}.hero-visual img{width:min(67%,350px);height:auto;display:block}
+    section{padding:70px 0}.section-head{margin-bottom:32px;max-width:980px}.section-head h2{font-size:clamp(30px,4vw,54px);line-height:1.03;letter-spacing:-.045em;margin:0 0 14px}.section-head p{color:var(--muted);font-size:17px;margin:0}.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--blue);margin:0 0 10px}.notice{background:var(--navy);color:#fff;border-radius:18px;padding:22px 26px;margin:0 0 28px}.notice strong{color:#8ed9ff}.matrix{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;font-size:15px}.matrix th{background:#e8f2ff;color:#274a7a;text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.matrix th,.matrix td{padding:17px 18px;border-bottom:1px solid var(--line);vertical-align:top}.matrix tr:last-child td{border-bottom:0}.matrix td:first-child{font-weight:800;min-width:190px}.matrix ul{margin:0;padding-left:18px}.matrix li{margin:4px 0}
+    .case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.case{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 10px 30px #1742730b}.case h3{font-size:25px;line-height:1.12;margin:0 0 10px}.case .tag{display:inline-block;border-radius:999px;background:#e6f0ff;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;margin-bottom:14px}.case:nth-child(2) .tag{background:#e3f7f2;color:#127a71}.case:nth-child(3) .tag{background:#fff3d8;color:#9b691a}.case ul,.bullets{padding-left:19px;margin:12px 0 0}.case li,.bullets li{margin:8px 0}.case li strong{color:var(--ink)}.source{font-size:13px;color:var(--muted);margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+    .focus{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}.focus h3{margin:0 0 14px;font-size:23px}.focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}.focus ul{margin:0;padding-left:20px}.focus li{margin:8px 0}.callout{border:2px solid #bcd6f5;border-radius:18px;padding:22px;background:#f5faff}.callout h3{margin:0 0 10px}.roadmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.step{border-radius:16px;padding:20px;background:#286cdb;color:#fff}.step:nth-child(2){background:#2c88a6}.step:nth-child(3){background:#2d8c7c}.step:nth-child(4){background:#a97922}.step small{font-weight:700;opacity:.8}.step h3{margin:8px 0;font-size:20px}.step p{margin:0;font-size:14px}.refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.ref{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.ref h3{font-size:18px;margin:0 0 10px}.ref ul{padding-left:18px;margin:0}.ref li{margin:7px 0}.fine{font-size:13px;color:var(--muted)}footer{background:var(--navy);color:#c4d4ec;padding:42px 0}.footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.footer-logo{height:38px;filter:brightness(0) invert(1);margin-bottom:12px}.footer-inner p{margin:0;max-width:620px}.footer-inner a{color:#8ed9ff}
+    @media(max-width:900px){.hero-grid,.focus-grid{grid-template-columns:1fr}.case-grid,.refs{grid-template-columns:1fr 1fr}.roadmap{grid-template-columns:1fr 1fr}.hero-visual{min-height:300px}.nav{gap:12px;font-size:12px}}
+    @media(max-width:620px){.wrap{width:min(100% - 32px,1480px)}.topbar{padding:0 16px}.brand img{height:32px}.nav{display:none}section{padding:48px 0}.hero{padding:48px 0 54px}.case-grid,.refs,.roadmap{grid-template-columns:1fr}.matrix{font-size:14px;display:block;overflow-x:auto;white-space:normal}.matrix th,.matrix td{min-width:170px}.hero h1{font-size:54px}}
+  </style>
+</head>
+<body id="top">
+  <header class="topbar">
+    <a class="brand" href="#top"><img src="assets/saih/saih-logo.png" alt="Saigon AI Hub" onerror="this.onerror=null;this.src='saih-logo.png';" /></a>
+    <nav class="nav"><a href="#scope">Scope</a><a href="#matrix">Matrix</a><a href="#cases">Cases</a><a href="#implications">Implications</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">SAIH partnership benchmark · V2 · August 2026</p>
+          <h1>Three models worth studying before expanding the SAIH portfolio.</h1>
+          <p class="lede">A shortened research note for leadership: what comparable hubs do, why partners participate, what resources they bring, and what outcomes their models are designed to produce.</p>
+          <div class="hero-note">This is a case-study benchmark, not a ranking. The focus is on documented operating mechanisms and lessons worth carrying forward.</div>
+        </div>
+        <div class="hero-visual" aria-label="Saigon AI Hub visual"><img src="assets/saih/saih-3d-mark.png" alt="Saigon AI Hub mark" onerror="this.onerror=null;this.src='saih-3d-mark.png';" /></div>
+      </div>
+    </section>
+
+    <section id="scope"><div class="wrap">
+      <div class="section-head"><p class="kicker">Scope</p><h2>Why these three cases?</h2><p>The selection prioritises models that connect research, infrastructure, talent and real-world application through a defined institutional partnership.</p></div>
+      <div class="notice"><strong>Reading lens:</strong> model · focus · partner contribution · intended outcome · current status · lesson for SAIH.</div>
+      <ul class="bullets">
+        <li><strong>NVIDIA × KAIST:</strong> the closest reference for a strategic technology–university partnership designed around national AI capability, compute, talent and open models.</li>
+        <li><strong>AI Singapore 100 Experiments:</strong> a mature translation model with defined co-funding, engineering capacity, delivery stages and handover.</li>
+        <li><strong>Tsinghua AIR:</strong> a university–enterprise institute model showing how one hub can manage a portfolio of research, industrial partnerships and sector applications.</li>
+      </ul>
+      <p class="fine">“KAIH” in the request is treated as KAIST: Korea Advanced Institute of Science and Technology.</p>
+    </div></section>
+
+    <section id="matrix"><div class="wrap">
+      <div class="section-head"><p class="kicker">At a glance</p><h2>Three partnership models, three operating logics.</h2></div>
+      <table class="matrix"><thead><tr><th>Case</th><th>Partnership model</th><th>Partner contribution</th><th>Designed outcome</th><th>Status</th></tr></thead><tbody>
+        <tr><td>NVIDIA × KAIST</td><td>Strategic corporate–academic joint lab</td><td><ul><li>Compute and funding</li><li>Nemotron open models</li><li>Cloud infrastructure</li><li>Internships and talent pathways</li></ul></td><td><ul><li>Agentic AI research</li><li>Korean-language and industry systems</li><li>National capability and talent retention</li></ul></td><td>Announced July 2026; early-stage implementation.</td></tr>
+        <tr><td>AI Singapore 100E</td><td>Co-funded industry translation programme</td><td><ul><li>Up to SGD150,000 co-funding</li><li>AI engineering hub</li><li>Apprentices and technical support</li><li>Partner cash or in-kind manpower</li></ul></td><td><ul><li>3-month validated PoC</li><li>6-month production-ready solution</li><li>Knowledge transfer and local talent</li></ul></td><td>Operational programme; AI Singapore reports 300+ successful projects.</td></tr>
+        <tr><td>Tsinghua AIR</td><td>University–enterprise applied research institute</td><td><ul><li>Industry partnership team</li><li>Joint programmes and scenarios</li><li>Research and engineering talent</li><li>Access to companies and sectors</li></ul></td><td><ul><li>Core AI research</li><li>Industrial innovation</li><li>Technology transfer and sector upgrade</li></ul></td><td>Established institute; official site lists annual reports through 2025.</td></tr>
+      </tbody></table>
+    </div></section>
+
+    <section id="cases"><div class="wrap">
+      <div class="section-head"><p class="kicker">Case studies</p><h2>What each model does — and what it teaches.</h2></div>
+      <div class="case-grid">
+        <article class="case"><span class="tag">Strategic anchor</span><h3>NVIDIA × KAIST</h3><ul>
+          <li><strong>What it is:</strong> a joint AI research lab hosted at KAIST’s Kim Jaechul Graduate School of AI in Seoul.</li>
+          <li><strong>Why KAIST:</strong> NVIDIA’s public rationale points to KAIST’s research capability, talent base and role in Korea’s advanced technology ecosystem.</li>
+          <li><strong>Focus:</strong> agentic AI models and systems for Korean industries, language and future applications.</li>
+          <li><strong>Resources:</strong> compute contributions, research funding, NVIDIA Nemotron open models, local cloud-partner infrastructure and talent pathways.</li>
+          <li><strong>Public scale:</strong> NVIDIA states a planned USD300 million five-year collaboration, including expected annual compute contributions; this is a stated plan, not a verified delivered outcome.</li>
+          <li><strong>Status:</strong> newly launched in July 2026; public information describes the structure and intended outcomes, not impact results yet.</li>
+        </ul><p class="source"><a href="https://nvidianews.nvidia.com/news/nvidia-and-kaist-launch-joint-ai-research-lab-to-accelerate-ai-innovation-in-korea" target="_blank" rel="noreferrer">NVIDIA announcement</a> · <a href="https://www.kaist.ac.kr/news/html/news/?GotoPage=1&list_e_date=&list_s_date=&mng_no=64871&mode=V&skey=keyword&sval=AI%EB%8C%80%ED%95%99" target="_blank" rel="noreferrer">KAIST announcement</a></p></article>
+        <article class="case"><span class="tag">Translation engine</span><h3>AI Singapore 100E</h3><ul>
+          <li><strong>What it is:</strong> a structured programme that helps organisations move from an AI problem to a working solution.</li>
+          <li><strong>Focus:</strong> industry adoption, practical experimentation and local capability building.</li>
+          <li><strong>Resources:</strong> up to SGD150,000 co-funding, a full-time AI Engineering Hub, AI apprentices, technical expertise and knowledge transfer.</li>
+          <li><strong>Delivery:</strong> assessment and scoping → implementation → handover.</li>
+          <li><strong>Outcomes:</strong> a validated PoC in three months or a production-ready solution in six months.</li>
+          <li><strong>Status:</strong> mature operating programme; AI Singapore reports more than 300 successful projects.</li>
+        </ul><p class="source"><a href="https://aisingapore.org/innovation/100e/" target="_blank" rel="noreferrer">AI Singapore 100E</a> · <a href="https://aisingapore.org/" target="_blank" rel="noreferrer">AI Singapore</a></p></article>
+        <article class="case"><span class="tag">Portfolio institute</span><h3>Tsinghua AIR</h3><ul>
+          <li><strong>What it is:</strong> Tsinghua University’s Institute for AI Industry Research, founded in 2020.</li>
+          <li><strong>Focus:</strong> using university and enterprise “double engines” to advance core AI technologies, industrial leaders and sector upgrade.</li>
+          <li><strong>Resources:</strong> principal investigators, research teams, industry partnership staff, real-world scenarios and joint programmes.</li>
+          <li><strong>Partnership pattern:</strong> AIR reports partnerships and integrated industry–education–research programmes with more than ten companies.</li>
+          <li><strong>Outcomes:</strong> research, industrial application, technology transfer and wider ecosystem links.</li>
+          <li><strong>Status:</strong> established institute with a public research and partnership portfolio.</li>
+        </ul><p class="source"><a href="https://air.tsinghua.edu.cn/en/About_Us/About_AIR.htm" target="_blank" rel="noreferrer">About Tsinghua AIR</a> · <a href="https://air.tsinghua.edu.cn/en/ndbg/6-Newsletter.pdf" target="_blank" rel="noreferrer">AIR newsletter</a></p></article>
+      </div>
+    </div></section>
+
+    <section id="implications"><div class="wrap">
+      <div class="section-head"><p class="kicker">Implications for SAIH</p><h2>What is worth carrying forward first?</h2><p>The recommendation is not to copy any one hub. It is to combine the strongest mechanisms into a portfolio that makes SAIH valuable to different partner types.</p></div>
+      <div class="focus-grid">
+        <div class="focus"><h3>Lessons already visible in the cases</h3><ul>
+          <li><strong>Make the partnership proposition concrete:</strong> define what a partner brings beyond a logo—compute, funding, models, experts, users, scenarios or deployment access.</li>
+          <li><strong>Design for a named outcome:</strong> joint lab, validated PoC, production-ready solution, publication, talent pathway or sector pilot.</li>
+          <li><strong>Build a translation layer:</strong> research teams need product, engineering, domain and programme support around them.</li>
+          <li><strong>Use staged support:</strong> selection, onboarding, milestones, validation, showcase and next-step decisions.</li>
+          <li><strong>Maintain a portfolio:</strong> one strategic anchor can be complemented by technology, academic, domain and translation partners.</li>
+        </ul></div>
+        <div class="callout"><h3>Illustrative NVIDIA-facing portfolio for SAIH</h3><ul class="bullets">
+          <li><strong>Research layer:</strong> selected Applied AI research tracks with clear technical questions and publication potential.</li>
+          <li><strong>Technology layer:</strong> GPU access, model support, inference optimisation, SDKs and expert office hours.</li>
+          <li><strong>Talent layer:</strong> internships, fellowships, visiting experts and a Vietnam-based researcher pipeline.</li>
+          <li><strong>Application layer:</strong> Vietnamese problem statements, data partners, user validation and device or cloud pilots.</li>
+          <li><strong>Showcase layer:</strong> an annual or semi-annual demo and research review that makes progress visible.</li>
+        </ul><p class="fine">This is a forward-looking design implication, not a claim about a current NVIDIA–SAIH agreement.</p></div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><p class="kicker">Suggested next step</p><h2>Turn the benchmark into a partner-ready portfolio.</h2></div>
+      <div class="roadmap"><div class="step"><small>01 · Clarify</small><h3>Define tracks</h3><p>Choose 2–3 Applied AI themes where SAIH can offer research quality and local relevance.</p></div><div class="step"><small>02 · Package</small><h3>Specify asks</h3><p>Translate each track into compute, expert, talent, funding and pilot requirements.</p></div><div class="step"><small>03 · Evidence</small><h3>Show progress</h3><p>Use milestones, technical outputs, validation and researcher stories to demonstrate execution.</p></div><div class="step"><small>04 · Expand</small><h3>Build portfolio</h3><p>Add partner-specific modes: strategic lab, sponsored project, technology track and translation pathway.</p></div></div>
+    </div></section>
+
+    <section><div class="wrap"><div class="section-head"><p class="kicker">Sources</p><h2>Primary references.</h2><p>All claims in this shortened version are linked directly to public institutional or authoritative sources.</p></div><div class="refs"><div class="ref"><h3>NVIDIA × KAIST</h3><ul><li><a href="https://nvidianews.nvidia.com/news/nvidia-and-kaist-launch-joint-ai-research-lab-to-accelerate-ai-innovation-in-korea" target="_blank" rel="noreferrer">NVIDIA News</a></li><li><a href="https://www.kaist.ac.kr/news/html/news/?GotoPage=1&list_e_date=&list_s_date=&mng_no=64871&mode=V&skey=keyword&sval=AI%EB%8C%80%ED%95%99" target="_blank" rel="noreferrer">KAIST</a></li><li><a href="https://www.yna.co.kr/view/AKR20260724063600063" target="_blank" rel="noreferrer">Yonhap</a></li></ul></div><div class="ref"><h3>AI Singapore</h3><ul><li><a href="https://aisingapore.org/innovation/100e/" target="_blank" rel="noreferrer">100 Experiments</a></li><li><a href="https://aisingapore.org/faq/what-are-the-differences-between-100-experiments-for-industry-100e4i-and-100-experiments-for-research-100e4r/" target="_blank" rel="noreferrer">100E FAQ</a></li><li><a href="https://aisingapore.org/" target="_blank" rel="noreferrer">AI Singapore</a></li></ul></div><div class="ref"><h3>Tsinghua AIR</h3><ul><li><a href="https://air.tsinghua.edu.cn/en/About_Us/About_AIR.htm" target="_blank" rel="noreferrer">About AIR</a></li><li><a href="https://air.tsinghua.edu.cn/en/ndbg/6-Newsletter.pdf" target="_blank" rel="noreferrer">AIR newsletter</a></li></ul></div></div></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><div><img class="footer-logo" src="assets/saih/saih-logo.png" alt="Saigon AI Hub" onerror="this.onerror=null;this.src='saih-logo.png';" /><p>SAIH partnership benchmark · V2<br/>Prepared as a shortened leadership scan and a starting point for future partner portfolio design.</p></div><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
